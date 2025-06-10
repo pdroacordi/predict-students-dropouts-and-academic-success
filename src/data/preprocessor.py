@@ -1,6 +1,8 @@
 """
 Módulo para pré-processamento dos dados
 """
+from typing import Tuple, Any
+
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler, LabelEncoder
@@ -26,7 +28,7 @@ class DataPreprocessor:
         self.scaler.fit(X_imputed)
         self.label_encoder.fit(y)
 
-    def transform(self, X: np.ndarray, y: np.ndarray = None) -> Tuple[np.ndarray, np.ndarray]:
+    def transform(self, X: np.ndarray, y: np.ndarray = None) -> tuple[Any, Any] | tuple[Any, None]:
         """Transforma os dados"""
         logger.info("Aplicando transformações")
         X_imputed = self.imputer.transform(X)
