@@ -1,0 +1,39 @@
+{
+    "knn": {
+        "best_params": {
+            "n_neighbors": 15,
+            "weights": "uniform"
+        },
+        "best_score": 0.7088589652728562
+    },
+    "decision_tree": {
+        "best_params": {
+            "criterion": "gini",
+            "max_depth": 5,
+            "min_samples_leaf": 4,
+            "min_samples_split": 10
+        },
+        "best_score": 0.740806211270421
+    },
+    "svm": {
+        "best_params": {
+            "C": 1,
+            "degree": 2,
+            "gamma": "scale",
+            "kernel": "rbf"
+        },
+        "best_score": 0.7564802195206164
+    },
+    "mlp": {
+        "best_params": {
+            "activation": "identity",
+            "hidden_layer_sizes": [
+                100,
+                50
+            ],
+            "learning_rate_init": 0.001,
+            "max_iter": 200
+        },
+        "best_score": 0.7655213614639553
+    }
+}

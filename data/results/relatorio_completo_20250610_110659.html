@@ -1,0 +1,165 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Relatório de Comparação de Algoritmos ML</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 40px; }
+                h1, h2, h3 { color: #333; }
+                table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f2f2f2; }
+                .highlight { background-color: #e6f3ff; font-weight: bold; }
+                .section { margin: 30px 0; }
+                .metrics-table { width: auto; }
+                .statistical-significance { color: #d9534f; }
+            </style>
+        </head>
+        <body>
+            <h1>Relatório de Comparação de Algoritmos de Machine Learning</h1>
+            <p><strong>Data:</strong> 10/06/2025 11:06:59</p>
+
+            <div class="section">
+                <h2>1. Resumo Executivo</h2>
+                <p>Este relatório apresenta a comparação de desempenho entre 4 algoritmos de Machine Learning:</p>
+                <ul>
+                    <li>K-Nearest Neighbors (KNN)</li>
+                    <li>Árvore de Decisão</li>
+                    <li>Support Vector Machine (SVM)</li>
+                    <li>Multi-Layer Perceptron (MLP)</li>
+                </ul>
+                <p><strong>Melhor modelo identificado:</strong> <span class="highlight">MLP</span></p>
+            </div>
+
+            <div class="section">
+                <h2>2. Melhores Hiperparâmetros</h2>
+                <table><tr><th>Modelo</th><th>Hiperparâmetros</th></tr><tr><td>KNN</td><td>n_neighbors: 15<br>weights: uniform</td></tr><tr><td>Decision_Tree</td><td>criterion: gini<br>max_depth: 5<br>min_samples_leaf: 4<br>min_samples_split: 10</td></tr><tr><td>SVM</td><td>C: 1<br>degree: 2<br>gamma: scale<br>kernel: rbf</td></tr><tr><td>MLP</td><td>activation: identity<br>hidden_layer_sizes: (100, 50)<br>learning_rate_init: 0.001<br>max_iter: 200</td></tr></table>
+            </div>
+
+            <div class="section">
+                <h2>3. Métricas de Desempenho</h2>
+                
+        <table class="metrics-table">
+        <tr>
+            <th>Modelo</th>
+            <th>Acurácia Média</th>
+            <th>Desvio Padrão</th>
+            <th>Mín</th>
+            <th>Máx</th>
+            <th>Precisão</th>
+            <th>Recall</th>
+            <th>F1-Score</th>
+        </tr>
+        
+            <tr class="">
+                <td>KNN</td>
+                <td>0.6895</td>
+                <td>0.0104</td>
+                <td>0.6682</td>
+                <td>0.7080</td>
+                <td>0.6800</td>
+                <td>0.6962</td>
+                <td>0.6748</td>
+            </tr>
+            
+            <tr class="">
+                <td>Decision_Tree</td>
+                <td>0.7253</td>
+                <td>0.0124</td>
+                <td>0.7016</td>
+                <td>0.7505</td>
+                <td>0.7391</td>
+                <td>0.7505</td>
+                <td>0.7251</td>
+            </tr>
+            
+            <tr class="">
+                <td>SVM</td>
+                <td>0.7476</td>
+                <td>0.0049</td>
+                <td>0.7405</td>
+                <td>0.7550</td>
+                <td>0.7482</td>
+                <td>0.7550</td>
+                <td>0.7481</td>
+            </tr>
+            
+            <tr class="highlight">
+                <td>MLP</td>
+                <td>0.7495</td>
+                <td>0.0049</td>
+                <td>0.7432</td>
+                <td>0.7586</td>
+                <td>0.7225</td>
+                <td>0.7450</td>
+                <td>0.7291</td>
+            </tr>
+            </table>
+            </div>
+
+            <div class="section">
+                <h2>4. Análise Estatística</h2>
+                <h3>4.1 Teste de Kruskal-Wallis</h3>
+                <p>Estatística: 30.5105</p>
+                <p>P-valor: 0.0000</p>
+                <p><strong>Conclusão:</strong> Há diferença estatisticamente significativa entre os modelos (p < 0.05)</p>
+
+                <h3>4.2 Testes de Mann-Whitney (comparações par a par)</h3>
+                <table><tr><th>Comparação</th><th>P-valor</th><th>Significância</th></tr>
+                <tr>
+                    <td>KNN vs Decision_Tree</td>
+                    <td>0.0002</td>
+                    <td class="statistical-significance">Sim</td>
+                </tr>
+                
+                <tr>
+                    <td>KNN vs SVM</td>
+                    <td>0.0002</td>
+                    <td class="statistical-significance">Sim</td>
+                </tr>
+                
+                <tr>
+                    <td>KNN vs MLP</td>
+                    <td>0.0002</td>
+                    <td class="statistical-significance">Sim</td>
+                </tr>
+                
+                <tr>
+                    <td>Decision_Tree vs SVM</td>
+                    <td>0.0010</td>
+                    <td class="statistical-significance">Sim</td>
+                </tr>
+                
+                <tr>
+                    <td>Decision_Tree vs MLP</td>
+                    <td>0.0010</td>
+                    <td class="statistical-significance">Sim</td>
+                </tr>
+                
+                <tr>
+                    <td>SVM vs MLP</td>
+                    <td>0.4048</td>
+                    <td class="">Não</td>
+                </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>5. Conclusões</h2>
+                
+        <p>Com base nos resultados obtidos, podemos concluir que:</p>
+        <ul>
+            <li>O modelo <strong>MLP</strong> apresentou o melhor desempenho geral, 
+                com acurácia média de 0.7495</li>
+        
+            <li>O teste de Kruskal-Wallis indicou diferenças significativas entre os modelos</li>
+            <li>As comparações par a par (Mann-Whitney) revelaram:</li>
+            <ul>
+            <li>Diferença significativa entre KNN e Decision_Tree</li><li>Diferença significativa entre KNN e SVM</li><li>Diferença significativa entre KNN e MLP</li><li>Diferença significativa entre Decision_Tree e SVM</li><li>Diferença significativa entre Decision_Tree e MLP</li></ul>
+        </ul>
+        <p>Recomenda-se o uso do modelo MLP para esta tarefa de classificação.</p>
+        
+            </div>
+        </body>
+        </html>
+        
