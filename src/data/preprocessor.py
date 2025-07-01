@@ -19,27 +19,56 @@ class DataPreprocessor:
         self.scaler = StandardScaler()
         self.label_encoder = LabelEncoder()
         self.imputer = SimpleImputer(strategy='mean')
+        self._is_fitted = False
 
-    def fit(self, X: np.ndarray, y: np.ndarray):
-        """Ajusta os transformadores aos dados"""
-        logger.info("Ajustando pré-processadores")
-        self.imputer.fit(X)
-        X_imputed = self.imputer.transform(X)
-        self.scaler.fit(X_imputed)
-        self.label_encoder.fit(y)
+    def fit(self, X_train: np.ndarray, y_train: np.ndarray):
+        """Ajusta os transformadores APENAS aos dados de treino"""
+        logger.info("Ajustando pré-processadores APENAS nos dados de treino")
 
-    def transform(self, X: np.ndarray, y: np.ndarray = None) -> tuple[Any, Any] | tuple[Any, None]:
-        """Transforma os dados"""
-        logger.info("Aplicando transformações")
+        # Primeiro imputa valores faltantes
+        self.imputer.fit(X_train)
+        X_train_imputed = self.imputer.transform(X_train)
+
+        # Depois normaliza com os dados já imputados
+        self.scaler.fit(X_train_imputed)
+
+        # Ajusta encoder de labels
+        self.label_encoder.fit(y_train)
+
+        self._is_fitted = True
+        logger.info("Pré-processadores ajustados com sucesso")
+
+    def transform_features(self, X: np.ndarray) -> np.ndarray:
+        """Transforma apenas as features (sem labels)"""
+        if not self._is_fitted:
+            raise ValueError("Transformadores não foram ajustados. Chame fit() primeiro.")
+
+        logger.info("Aplicando transformações nas features")
         X_imputed = self.imputer.transform(X)
         X_scaled = self.scaler.transform(X_imputed)
+        return X_scaled
+
+    def transform_labels(self, y: np.ndarray) -> np.ndarray:
+        """Transforma apenas os labels"""
+        if not self._is_fitted:
+            raise ValueError("Transformadores não foram ajustados. Chame fit() primeiro.")
+
+        return self.label_encoder.transform(y)
+
+    def transform(self, X: np.ndarray, y: np.ndarray = None) -> tuple[Any, Any] | tuple[Any, None]:
+        """Transforma os dados usando transformadores já ajustados"""
+        X_transformed = self.transform_features(X)
 
         if y is not None:
-            y_encoded = self.label_encoder.transform(y)
-            return X_scaled, y_encoded
-        return X_scaled, None
+            y_transformed = self.transform_labels(y)
+            return X_transformed, y_transformed
+        return X_transformed, None
 
-    def fit_transform(self, X: np.ndarray, y: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
-        """Ajusta e transforma os dados"""
-        self.fit(X, y)
-        return self.transform(X, y)
+    def fit_transform_train(self, X_train: np.ndarray, y_train: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+        """Ajusta nos dados de treino E transforma os dados de treino"""
+        self.fit(X_train, y_train)
+        return self.transform(X_train, y_train)
+
+    def inverse_transform_labels(self, y_encoded: np.ndarray) -> np.ndarray:
+        """Reverte a transformação dos labels"""
+        return self.label_encoder.inverse_transform(y_encoded)

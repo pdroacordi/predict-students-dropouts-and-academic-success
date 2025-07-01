@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Dict, Any, List, Tuple
 
 import numpy as np
+import pandas as pd
 
 
 def save_results(results: Dict[str, Any], filepath: Path):
@@ -23,6 +24,10 @@ def save_results(results: Dict[str, Any], filepath: Path):
             return {k: convert_numpy(v) for k, v in obj.items()}
         elif isinstance(obj, list):
             return [convert_numpy(item) for item in obj]
+        elif isinstance(obj, pd.DataFrame):
+            return obj.to_dict(orient='records')
+        elif isinstance(obj, pd.Series):
+            return obj.to_list()
         return obj
 
     converted_results = convert_numpy(results)

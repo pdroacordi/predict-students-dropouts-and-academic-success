@@ -1,0 +1,28 @@
+2025-07-01 10:18:07 - ML_Comparison - INFO - === INICIANDO PIPELINE ===
+2025-07-01 10:18:07 - ML_Comparison - INFO - 1. Carregando dados...
+2025-07-01 10:18:07 - ML_Comparison - INFO - Dataset carregado: (4424, 34) features, 3 classes
+2025-07-01 10:18:07 - ML_Comparison - INFO - 2. Inicializando modelos...
+2025-07-01 10:18:07 - ML_Comparison - INFO - 3. Iniciando avaliação com divisões independentes...
+2025-07-01 10:18:07 - ML_Comparison - INFO - 
+--- Avaliando KNN ---
+2025-07-01 10:18:11 - ML_Comparison - INFO - knn - Acurácia: 0.7060 ± 0.0099
+2025-07-01 10:18:11 - ML_Comparison - INFO - 
+--- Avaliando DECISION_TREE ---
+2025-07-01 10:18:20 - ML_Comparison - INFO - decision_tree - Acurácia: 0.7427 ± 0.0125
+2025-07-01 10:18:20 - ML_Comparison - INFO - 
+--- Avaliando SVM ---
+2025-07-01 10:19:24 - ML_Comparison - INFO - svm - Acurácia: 0.7533 ± 0.0121
+2025-07-01 10:19:24 - ML_Comparison - INFO - 
+--- Avaliando MLP ---
+2025-07-01 10:23:03 - ML_Comparison - INFO - mlp - Acurácia: 0.7620 ± 0.0103
+2025-07-01 10:23:03 - ML_Comparison - INFO - 
+4. Identificando melhor modelo...
+2025-07-01 10:23:03 - ML_Comparison - INFO - Melhor modelo: mlp (Acurácia: 0.7620)
+2025-07-01 10:23:03 - ML_Comparison - INFO - 
+5. Realizando análise estatística...
+2025-07-01 10:23:03 - ML_Comparison - INFO - 
+6. Gerando visualizações...
+2025-07-01 10:23:22 - ML_Comparison - INFO - 
+7. Gerando relatório...
+2025-07-01 10:23:22 - ML_Comparison - INFO - 
+8. Salvando resultados...

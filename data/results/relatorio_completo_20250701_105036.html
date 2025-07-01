@@ -17,7 +17,7 @@
         </head>
         <body>
             <h1>Relatório de Comparação de Algoritmos de Machine Learning</h1>
-            <p><strong>Data:</strong> 10/06/2025 11:06:59</p>
+            <p><strong>Data:</strong> 01/07/2025 10:50:36</p>
 
             <div class="section">
                 <h2>1. Resumo Executivo</h2>
@@ -28,12 +28,12 @@
                     <li>Support Vector Machine (SVM)</li>
                     <li>Multi-Layer Perceptron (MLP)</li>
                 </ul>
-                <p><strong>Melhor modelo identificado:</strong> <span class="highlight">MLP</span></p>
+                <p><strong>Melhor modelo identificado:</strong> <span class="highlight">mlp</span></p>
             </div>
 
             <div class="section">
                 <h2>2. Melhores Hiperparâmetros</h2>
-                <table><tr><th>Modelo</th><th>Hiperparâmetros</th></tr><tr><td>KNN</td><td>n_neighbors: 15<br>weights: uniform</td></tr><tr><td>Decision_Tree</td><td>criterion: gini<br>max_depth: 5<br>min_samples_leaf: 4<br>min_samples_split: 10</td></tr><tr><td>SVM</td><td>C: 1<br>degree: 2<br>gamma: scale<br>kernel: rbf</td></tr><tr><td>MLP</td><td>activation: identity<br>hidden_layer_sizes: (100, 50)<br>learning_rate_init: 0.001<br>max_iter: 200</td></tr></table>
+                <table><tr><th>Modelo</th><th>Hiperparâmetros</th></tr><tr><td>knn</td><td>n_neighbors: 15<br>weights: distance</td></tr><tr><td>decision_tree</td><td>criterion: gini<br>max_depth: 5<br>min_samples_leaf: 4<br>min_samples_split: 10</td></tr><tr><td>svm</td><td>C: 1<br>degree: 2<br>gamma: auto<br>kernel: rbf</td></tr><tr><td>mlp</td><td>activation: identity<br>hidden_layer_sizes: (100, 50)<br>learning_rate_init: 0.001<br>max_iter: 200</td></tr></table>
             </div>
 
             <div class="section">
@@ -52,47 +52,47 @@
         </tr>
         
             <tr class="">
-                <td>KNN</td>
-                <td>0.6895</td>
-                <td>0.0104</td>
-                <td>0.6682</td>
-                <td>0.7080</td>
-                <td>0.6800</td>
-                <td>0.6962</td>
-                <td>0.6748</td>
+                <td>knn</td>
+                <td>0.7060</td>
+                <td>0.0099</td>
+                <td>0.6908</td>
+                <td>0.7306</td>
+                <td>0.6927</td>
+                <td>0.7060</td>
+                <td>0.6764</td>
             </tr>
             
             <tr class="">
-                <td>Decision_Tree</td>
-                <td>0.7253</td>
-                <td>0.0124</td>
-                <td>0.7016</td>
-                <td>0.7505</td>
-                <td>0.7391</td>
-                <td>0.7505</td>
-                <td>0.7251</td>
+                <td>decision_tree</td>
+                <td>0.7427</td>
+                <td>0.0125</td>
+                <td>0.7260</td>
+                <td>0.7703</td>
+                <td>0.7301</td>
+                <td>0.7427</td>
+                <td>0.7256</td>
             </tr>
             
             <tr class="">
-                <td>SVM</td>
-                <td>0.7476</td>
-                <td>0.0049</td>
-                <td>0.7405</td>
-                <td>0.7550</td>
-                <td>0.7482</td>
-                <td>0.7550</td>
-                <td>0.7481</td>
+                <td>svm</td>
+                <td>0.7533</td>
+                <td>0.0121</td>
+                <td>0.7315</td>
+                <td>0.7649</td>
+                <td>0.7389</td>
+                <td>0.7533</td>
+                <td>0.7383</td>
             </tr>
             
             <tr class="highlight">
-                <td>MLP</td>
-                <td>0.7495</td>
-                <td>0.0049</td>
-                <td>0.7432</td>
-                <td>0.7586</td>
-                <td>0.7225</td>
-                <td>0.7450</td>
-                <td>0.7291</td>
+                <td>mlp</td>
+                <td>0.7620</td>
+                <td>0.0103</td>
+                <td>0.7396</td>
+                <td>0.7749</td>
+                <td>0.7503</td>
+                <td>0.7620</td>
+                <td>0.7521</td>
             </tr>
             </table>
             </div>
@@ -100,46 +100,46 @@
             <div class="section">
                 <h2>4. Análise Estatística</h2>
                 <h3>4.1 Teste de Kruskal-Wallis</h3>
-                <p>Estatística: 30.5105</p>
+                <p>Estatística: 26.8943</p>
                 <p>P-valor: 0.0000</p>
                 <p><strong>Conclusão:</strong> Há diferença estatisticamente significativa entre os modelos (p < 0.05)</p>
 
                 <h3>4.2 Testes de Mann-Whitney (comparações par a par)</h3>
                 <table><tr><th>Comparação</th><th>P-valor</th><th>Significância</th></tr>
                 <tr>
-                    <td>KNN vs Decision_Tree</td>
+                    <td>knn vs decision_tree</td>
+                    <td>0.0003</td>
+                    <td class="statistical-significance">Sim</td>
+                </tr>
+                
+                <tr>
+                    <td>knn vs svm</td>
                     <td>0.0002</td>
                     <td class="statistical-significance">Sim</td>
                 </tr>
                 
                 <tr>
-                    <td>KNN vs SVM</td>
+                    <td>knn vs mlp</td>
                     <td>0.0002</td>
                     <td class="statistical-significance">Sim</td>
                 </tr>
                 
                 <tr>
-                    <td>KNN vs MLP</td>
-                    <td>0.0002</td>
-                    <td class="statistical-significance">Sim</td>
-                </tr>
-                
-                <tr>
-                    <td>Decision_Tree vs SVM</td>
-                    <td>0.0010</td>
-                    <td class="statistical-significance">Sim</td>
-                </tr>
-                
-                <tr>
-                    <td>Decision_Tree vs MLP</td>
-                    <td>0.0010</td>
-                    <td class="statistical-significance">Sim</td>
-                </tr>
-                
-                <tr>
-                    <td>SVM vs MLP</td>
-                    <td>0.4048</td>
+                    <td>decision_tree vs svm</td>
+                    <td>0.1301</td>
                     <td class="">Não</td>
+                </tr>
+                
+                <tr>
+                    <td>decision_tree vs mlp</td>
+                    <td>0.0081</td>
+                    <td class="statistical-significance">Sim</td>
+                </tr>
+                
+                <tr>
+                    <td>svm vs mlp</td>
+                    <td>0.0340</td>
+                    <td class="statistical-significance">Sim</td>
                 </tr>
                 </table>
             </div>
@@ -149,15 +149,15 @@
                 
         <p>Com base nos resultados obtidos, podemos concluir que:</p>
         <ul>
-            <li>O modelo <strong>MLP</strong> apresentou o melhor desempenho geral, 
-                com acurácia média de 0.7495</li>
+            <li>O modelo <strong>mlp</strong> apresentou o melhor desempenho geral, 
+                com acurácia média de 0.7620</li>
         
             <li>O teste de Kruskal-Wallis indicou diferenças significativas entre os modelos</li>
             <li>As comparações par a par (Mann-Whitney) revelaram:</li>
             <ul>
-            <li>Diferença significativa entre KNN e Decision_Tree</li><li>Diferença significativa entre KNN e SVM</li><li>Diferença significativa entre KNN e MLP</li><li>Diferença significativa entre Decision_Tree e SVM</li><li>Diferença significativa entre Decision_Tree e MLP</li></ul>
+            <li>Diferença significativa entre knn e decision_tree</li><li>Diferença significativa entre knn e svm</li><li>Diferença significativa entre knn e mlp</li><li>Diferença significativa entre decision_tree e mlp</li><li>Diferença significativa entre svm e mlp</li></ul>
         </ul>
-        <p>Recomenda-se o uso do modelo MLP para esta tarefa de classificação.</p>
+        <p>Recomenda-se o uso do modelo mlp para esta tarefa de classificação.</p>
         
             </div>
         </body>
